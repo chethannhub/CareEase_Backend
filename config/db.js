@@ -1,16 +1,16 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        console.log('MongoDB connected successfully');
-    } catch (error) {
-        console.error(`Error: ${error.message}`);
-        process.exit(1); // Exit process with failure
-    }
+export const connectDB = async () => {
+  try {
+    const dbName = process.env.MONGO_DB_NAME;
+    const uri = `mongodb+srv://chethann:care%40123@careease.kpw50.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=CareEase`;
+
+    const conn = await mongoose.connect(uri);
+
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    console.log(`MongoDB connected successfully to ${conn.connection.db.databaseName}`);
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    process.exit(1);
+  }
 };
-
-module.exports = connectDB;
