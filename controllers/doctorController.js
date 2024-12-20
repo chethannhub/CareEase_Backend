@@ -17,3 +17,33 @@ export const getDoctors = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+export const updateDoctor = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updatedDoctor = await Doctor.findByIdAndUpdate(id, req.body, {
+            new: true, 
+            runValidators: true, 
+        });
+        if (!updatedDoctor) {
+            return res.status(404).json({ message: "Doctor not found" });
+        }
+        res.json(updatedDoctor);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
+
+export const deleteDoctor = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedDoctor = await Doctor.findByIdAndDelete(id);
+        if (!deletedDoctor) {
+            return res.status(404).json({ message: "Doctor not found" });
+        }
+        res.json({ message: "Doctor deleted successfully", doctor: deletedDoctor });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
