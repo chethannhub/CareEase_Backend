@@ -2,8 +2,9 @@ import mongoose from "mongoose";
 
 const patientSchema = new mongoose.Schema({
     name: { type: String, required: true },
+    age: { type: BigInt, required: true },
     phone: { type: String, required: true },
-    email: { type: String, required: true },
+    email: { type: String, required: false },
     gender: { type: String, required: true },
     address: { type: String, required: true },
     problem: { type: String, required: true },
