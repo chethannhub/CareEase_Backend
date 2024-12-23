@@ -47,3 +47,27 @@ export const deleteDoctor = async (req, res) => {
     }
 };
 
+// export const deleteDoctor = async (req, res) => {
+//     try {
+//         const { id } = req.params;
+
+//         const deletedDoctor = await Doctor.findByIdAndUpdate(
+//             id, 
+//             { deleted: true }, 
+//             { new: true } 
+//         );
+
+//         if (!deletedDoctor) {
+//             return res.status(404).json({ message: "Doctor not found" });
+//         }
+
+//         res.json({
+//             message: "Doctor soft deleted successfully",
+//             doctor: deletedDoctor
+//         });
+//     } catch (error) {
+//         res.status(500).json({ message: error.message });
+//     }
+// };
+
+

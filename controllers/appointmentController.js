@@ -19,7 +19,7 @@ export const getAppointments = async (req, res) => {
 
         const appointments = await Appointment.find(filter)
             .populate("patient", "name")
-            .populate("doctor", "name specialization");
+            .populate("doctor", "name specialization deleted");
         res.json(appointments);
     } catch (error) {
         res.status(500).json({ message: error.message });
