@@ -6,6 +6,7 @@ import { connectDB } from "./config/db.js";
 import patientRoutes from "./routes/patientRoutes.js";
 import doctorRoutes from "./routes/doctorRoutes.js";
 import appointmentRoutes from "./routes/appointmentRoutes.js";
+import treatmentRoutes from "./routes/treatmentRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use("/api/patients", patientRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/appointments", appointmentRoutes);
+app.use("/api/treatments", treatmentRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
