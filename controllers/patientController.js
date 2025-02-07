@@ -17,8 +17,6 @@ export const getPatients = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-<<<<<<< Updated upstream
-=======
 
 export const getPatientById = async (req, res) => {
     try {
@@ -44,4 +42,3 @@ export const getPatients_email_password = async (req, res) => {
     }
 };
 
->>>>>>> Stashed changes
