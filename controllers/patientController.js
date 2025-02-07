@@ -28,7 +28,7 @@ export const getPatientById = async (req, res) => {
         }
 
         res.json(patient);
-    } catch (error) {
+    } catch (error) { 
         res.status(500).json({ message: error.message });
     }
 };

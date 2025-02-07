@@ -6,6 +6,7 @@ import { connectDB } from "./config/db.js";
 import patientRoutes from "./routes/patientRoutes.js";
 import doctorRoutes from "./routes/doctorRoutes.js";
 import appointmentRoutes from "./routes/appointmentRoutes.js";
+import treatmentRoutes from "./routes/treatmentRoutes.js";
 import bedsRoutes from "./routes/bedsRoutes.js";
 import billsRoutes from "./routes/billsRoutes.js";
 
@@ -20,6 +21,8 @@ app.use(express.json());
 app.use("/api/patients", patientRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/appointments", appointmentRoutes);
+app.use("/api/treatments", treatmentRoutes);
+
 app.use("/api/beds", bedsRoutes);
 app.use("/api/bills", billsRoutes);
 
