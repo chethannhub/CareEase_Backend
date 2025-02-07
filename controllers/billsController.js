@@ -1,11 +1,11 @@
-import { Beds } from "../models/beds.js";
+import { Bills } from "../models/bills.js";
 
-export const getBeds = async (req, res) => {
+export const getBills = async (req, res) => {
     try {
-        const beds = await Beds.find()
+        const bills = await Bills.find()
             .populate("patient", "name problem age");
             
-        res.status(200).json(beds);
+        res.status(200).json(bills);
 
         
     } catch (error) {
