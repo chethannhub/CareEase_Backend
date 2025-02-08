@@ -23,7 +23,7 @@ app.use("/api/patients", patientRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/appointments", appointmentRoutes);
 app.use("/api/treatments", treatmentRoutes);
-app.use("/api/admin",adminRoutes);
+app.use("/api/admins",adminRoutes);
 app.use("/api/beds", bedsRoutes);
 app.use("/api/bills", billsRoutes);
 

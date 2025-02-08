@@ -27,6 +27,7 @@ const seedDatabase = async () => {
       {
         name: "Admin One",
         email: "admin1@example.com",
+        password: "admin1@123",
         role: "Super Admin",
         department: "Administration",
         lastLogin: new Date(),
@@ -36,6 +37,7 @@ const seedDatabase = async () => {
       {
         name: "Admin Two",
         email: "admin2@example.com",
+        password: "admin2@123",
         role: "Admin",
         department: "Operations",
         lastLogin: new Date(),
