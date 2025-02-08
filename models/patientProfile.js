@@ -11,6 +11,6 @@ const patientSchema = new mongoose.Schema({
   balance: { type: String, default: "$0.00" },
 });
 
-const Patient = mongoose.model("Patient", patientSchema);
+const PatientProfile = mongoose.model("PatientProfile", patientSchema);
 
-export default Patient;
+export default PatientProfile;
