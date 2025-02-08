@@ -4,6 +4,7 @@ import cors from "cors";
 import { connectDB } from "./config/db.js";
 
 import patientRoutes from "./routes/patientRoutes.js";
+import patientProfileRoutes from "./routes/patientProfileRoutes.js";
 import doctorRoutes from "./routes/doctorRoutes.js";
 import appointmentRoutes from "./routes/appointmentRoutes.js";
 import treatmentRoutes from "./routes/treatmentRoutes.js";
@@ -26,6 +27,7 @@ app.use("/api/treatments", treatmentRoutes);
 app.use("/api/admin",adminRoutes);
 app.use("/api/beds", bedsRoutes);
 app.use("/api/bills", billsRoutes);
+app.use("/api/patientProfile",patientProfileRoutes);    
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
