@@ -6,8 +6,8 @@ const billsSchema = new mongoose.Schema({
     doctor: {type: mongoose.Schema.Types.ObjectId, ref: "Doctor", required: false },
     noOfBills: {type: Number , required:true },
     pmtStatus:{type: String, required: true},
-    total:{type: Number , required:true},
-    reservationdate:{type:Date ,required : true}
+    amount:{type: Number , required:true},
+    billDate:{type:Date ,required : true}
 });
 
 export const Bills = mongoose.model("Bills", billsSchema);

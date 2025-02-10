@@ -23,7 +23,7 @@ export const getAppointments = async (req, res) => {
         res.json(appointments);
     } catch (error) {
         res.status(500).json({ message: error.message });
-    }
+    } 
 };
 
 export const updateAppointmentStatus = async (req, res) => {
