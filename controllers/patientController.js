@@ -2,7 +2,13 @@ import { Patient } from "../models/patient.js";
 
 export const createPatient = async (req, res) => {
     try {
-        const patient = await Patient.create(req.body);
+        let { email, name } = req.body;
+
+        if (!name && email) {
+            name = email.split("@")[0]; 
+        }
+
+        const patient = await Patient.create({ ...req.body, name });
         res.status(201).json(patient);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -23,7 +29,7 @@ export const getPatientById = async (req, res) => {
         const { userId } = req.params;
         const patient = await Patient.findById(userId);
 
-        if (!patient) {
+        if (!patient) { 
             return res.status(404).json({ message: 'Patient not found' });
         }
 

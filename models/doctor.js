@@ -6,7 +6,7 @@ const doctorSchema = new mongoose.Schema({
     assignedTreatment: { type: String, required: true }, 
     email: { type: String, required: true, unique: true }, 
     type: { type: String, enum: ['Part-Time', 'Full-Time'], required: true } ,
-    profile: { type: String, default: './icons/Profile_icon.svg' }, 
+    profile: { type: String, default: 'public/images/doctor_img.png' }, 
     days: { type: [Boolean], required: true }, 
     availableTimes: [String], 
     deleted: { type: Boolean, default: false }
