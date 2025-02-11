@@ -1,3 +1,5 @@
+// models\doctor.js
+
 import mongoose from "mongoose";
 
 const doctorSchema = new mongoose.Schema({
@@ -12,8 +14,8 @@ const doctorSchema = new mongoose.Schema({
     deleted: { type: Boolean, default: false },
     experience: { type: String, required: true }, 
     hospital:{ type: mongoose.Schema.Types.ObjectId, ref: "Hospital", required: false },
+    patient: { type: mongoose.Schema.Types.ObjectId, ref: "Patient", required: false },
     language:{type: Array,required:true}
-
 });
 
 export const Doctor = mongoose.model("Doctor", doctorSchema);

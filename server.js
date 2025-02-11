@@ -11,6 +11,7 @@ import treatmentRoutes from "./routes/treatmentRoutes.js";
 import bedsRoutes from "./routes/bedsRoutes.js";
 import billsRoutes from "./routes/billsRoutes.js";
 import adminRoutes from './routes/adminRoutes.js';
+import hospitalRoutes from './routes/hospitalRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -24,7 +25,8 @@ app.use("/api/patients", patientRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/appointments", appointmentRoutes);
 app.use("/api/treatments", treatmentRoutes);
-app.use("/api/admins",adminRoutes);
+app.use("/api/admins", adminRoutes);
+app.use("/api/hospitals", hospitalRoutes);
 app.use("/api/beds", bedsRoutes);
 app.use("/api/bills", billsRoutes);
 app.use("/api/patientProfile",patientProfileRoutes);    

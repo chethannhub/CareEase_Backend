@@ -9,7 +9,8 @@ const AdminSchema = new mongoose.Schema({
     department: String,
     lastLogin: Date,
     profilePic: String,
-    permissions: [String]
+    permissions: [String],
+    hospital:{ type: mongoose.Schema.Types.ObjectId, ref: "Hospital", required: false },
 });
 
 const Admin = mongoose.model('Admin', AdminSchema);

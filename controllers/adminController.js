@@ -17,7 +17,8 @@ export const createAdmin = async (req, res) => {
 
 export const getAdminProfile = async (req, res) => {
     try {
-        const admin = await Admin.findOne();
+        const admin = await Admin.find()
+            .populate("hospital", "name");
         if (!admin) return res.status(404).json({ message: "Admin not found" });
         res.json(admin);
     } catch (error) {
@@ -39,7 +40,8 @@ export const updateAdminProfile = async (req, res) => {
 export const getAdminById = async (req, res) => {
     try {
         const { userId } = req.params;
-        const admin = await Admin.findById(userId);
+        const admin = await Admin.findById(userId)
+            .populate("hospital", "name");
 
         if (!admin) { 
             return res.status(404).json({ message: 'Patient not found' });

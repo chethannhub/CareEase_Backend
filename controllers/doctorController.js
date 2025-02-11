@@ -1,4 +1,8 @@
+// controllers\doctorController.js
+
 import { Doctor } from "../models/doctor.js";
+import { Hospital } from "../models/hospital.js";
+import { Patient } from "../models/patient.js";
 
 export const createDoctor = async (req, res) => {
     try {
@@ -12,12 +16,19 @@ export const createDoctor = async (req, res) => {
 export const getDoctors = async (req, res) => {
     try {
         const doctors = await Doctor.find()
-        .populate("hospital","name");
+        .populate({ path: "hospital", select: "name" })
+        .populate({ path: "patient", select: "name" });
+      
+        
+        if (!doctors) {
+            return res.status(404).json({ message: "No doctors found" });
+        }
         res.json(doctors);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
+
 
 export const updateDoctor = async (req, res) => {
     try {
