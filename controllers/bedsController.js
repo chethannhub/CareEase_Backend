@@ -12,7 +12,8 @@ export const createBeds = async (req, res) => {
 export const getBeds = async (req, res) => {
     try {
         const beds = await Beds.find()
-            .populate("patient", "name problem age");
+            .populate("patient", "name problem age")
+            .populate("hospital", "name");
             
         res.status(200).json(beds);
 

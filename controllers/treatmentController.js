@@ -3,7 +3,8 @@ import Treatment from "../models/Treatment.js"; // Import the Treatment model
 // Get all treatments
 export const getTreatments = async (req, res) => {
   try {
-    const treatments = await Treatment.find(); // Fetch all documents from the 'treatments' collection
+    const treatments = await Treatment.find()
+      .populate("hospital", "name"); // Fetch all documents from the 'treatments' collection
     res.status(200).json(treatments);
   } catch (error) {
     res.status(500).json({ message: "Error fetching treatments", error });

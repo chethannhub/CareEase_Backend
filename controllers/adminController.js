@@ -40,11 +40,12 @@ export const updateAdminProfile = async (req, res) => {
 export const getAdminById = async (req, res) => {
     try {
         const { userId } = req.params;
+        console.log(userId);
         const admin = await Admin.findById(userId)
             .populate("hospital", "name");
 
         if (!admin) { 
-            return res.status(404).json({ message: 'Patient not found' });
+            return res.status(404).json({ message: 'Admin not found' });
         }
 
         res.json(admin);

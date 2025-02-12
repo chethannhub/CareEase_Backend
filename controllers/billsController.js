@@ -12,7 +12,8 @@ export const createBills = async (req, res) => {
 export const getBills = async (req, res) => {
     try {
         const bills = await Bills.find()
-            .populate("patient", "name problem age");
+            .populate("patient", "name problem age")
+            .populate("hospital", "name");
             
         res.status(200).json(bills);
 

@@ -7,6 +7,7 @@ const treatmentSchema = new mongoose.Schema({
   type: { type: String, required: true }, 
   rating: { type: String, default: "No Rating" },
   reviews: { type: String, default: "0" },
+  hospital:{ type: mongoose.Schema.Types.ObjectId, ref: "Hospital", required: false },
 });
 
 export default mongoose.model("Treatment", treatmentSchema);

@@ -5,6 +5,7 @@ const bedsSchema = new mongoose.Schema({
     department: { type: String, required: true },
     status: { type: String, default: "Not Available" }, 
     patient: { type: mongoose.Schema.Types.ObjectId, ref: "Patient", required: false },
+    hospital:{ type: mongoose.Schema.Types.ObjectId, ref: "Hospital", required: false },
     lastupdated:{type: Date, required: true }
 });
 
