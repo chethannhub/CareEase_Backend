@@ -40,7 +40,6 @@ export const updateAdminProfile = async (req, res) => {
 export const getAdminById = async (req, res) => {
     try {
         const { userId } = req.params;
-        console.log(userId);
         const admin = await Admin.findById(userId)
             .populate("hospital", "name");
 
