@@ -41,4 +41,11 @@ app.use("/api/hospitals", hospitalRoutes);
 app.use("/api/beds", bedsRoutes);
 app.use("/api/bills", billsRoutes);
 
+if(process.env.NODE_ENV !== "Production") {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+  console.log(`Server is running locally on port http://localhost:${PORT}/`);
+});
+}
+
 export default app;
