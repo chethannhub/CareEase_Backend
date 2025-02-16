@@ -9,8 +9,8 @@ export async function connectDB() {
 
   try {
     const dbName = process.env.MONGO_DB_NAME;
-    const uri = `mongodb+srv://chethann:care%40123@careease.kpw50.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=CareEase`;
-
+    const uri = `${process.env.MONGO_URI}${dbName}?retryWrites=true&w=majority`;
+    
     console.log("Connecting to MongoDB...");
     await mongoose.connect(uri);
 
